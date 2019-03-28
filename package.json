@@ -3,15 +3,25 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+   "engine": {
+    "node": "*",
+    "npm": "*"
+  },
   "scripts": {
     "start": "node server.js",
+    "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+   "repository": {
+    "type": "git",
+    "url": "http://github.com/ssaranga/chatv.git"
+  },
+  "author": "saranga",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.3",
     "nodemon": "^1.11.0",
     "socket.io": "^2.0.3"
-  }
+  },
+  "homepage": "http://github.com/ssaranga/chatv"
 }
