@@ -1,6 +1,8 @@
 const express = require('express'),
 http = require('http'),
 app = express(),
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 server = http.createServer(app),
 io = require('socket.io').listen(server);
 app.get('/', (req, res) => {
@@ -46,8 +48,8 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
 
 
 
-server.listen(3000,()=>{
+server.listen(server_port, server_ip_address,()=>{
+console.log( "Listening on " + server_ip_address + ", server_port " + server_port  );
 
-console.log('Node app is running on port 3000');
 
 });
