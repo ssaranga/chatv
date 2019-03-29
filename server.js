@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 res.send('Chat Server is running on port 3000')
 });
 io.on('connection', (socket) => {
-        let qList={"quesion":["Test question 1?", "Test question 2?","Test question 3?", "Test question 4?","Test question 5?", "Test question 6?"]};
+        let qList=["Test question 1?", "Test question 2?","Test question 3?", "Test question 4?","Test question 5?", "Test question 6?"];
         console.log("question :" +qList)
         socket.emit('question',qList);
         console.log('user connected')
