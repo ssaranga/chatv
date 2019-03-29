@@ -19,7 +19,7 @@ socket.on('join', function(userNickname) {
 
         console.log(userNickname +" : has joined the chat "  );
         console.log(senderNickname+" :" +messageContent)
-        let qList=["Test question 1?", "Test question 2?","Test question 3?", "Test question 4?","Test question 5?", "Test question 6?"];
+        let qList={"quesion":["Test question 1?", "Test question 2?","Test question 3?", "Test question 4?","Test question 5?", "Test question 6?"]};
         console.log("question :" +qList)
           
         socket.broadcast.emit('userjoinedthechat',userNickname +" : has joined the chat ");
