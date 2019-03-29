@@ -41,16 +41,12 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
     socket.broadcast.emit("userdisconnect"," user has left ") 
 
 });
- socket.on('play', function(play) {
-    console.log( ' Video Play'+play)
-    socket.broadcast.emit("play",play) 
+ socket.on('playcontrol', function(mediaplaycontrol) {
+    console.log( ' Video Play'+mediaplaycontrol)
+    socket.broadcast.emit("mediacontrol",mediaplayconrol) 
 
 });
- socket.on('pause', function(pause) {
-    console.log( ' Video Paused'+pause)
-    socket.broadcast.emit("pause",pause) 
 
-});
 
 
 
