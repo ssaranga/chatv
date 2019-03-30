@@ -11,9 +11,12 @@ app.get('/', (req, res) => {
 
 res.send('Chat Server is running on port 3000')
 });
-io.on('connect', (socket) => {
+io.on('connection', function(socket)  {
         
-        console.log('user connected')
+        console.log('user connected');
+        var store =socket.handshake.query.name; 
+        console.log(store);
+        console.log(socket.id); 
 
 socket.on('join', function(userNickname) {
 
