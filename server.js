@@ -14,7 +14,7 @@ res.send('Chat Server is running on port 3000')
 io.on('connection', (socket) =>  {
         
         console.log('user connected')
-        var store =socket.handshake.query.name
+        var store =socket.handshake.query.name;
         console.log(store)
         console.log(socket.id)
 
@@ -22,9 +22,7 @@ socket.on('join', function(userNickname) {
 
         console.log(userNickname +" : has joined the chat "  );
         
-        let qList={"question":["Test question 1?", "Test question 2?","Test question 3?", "Test question 4?","Test question 5?", "Test question 6?"]};
-        console.log("question :" +qList);
-        
+            
           
         socket.broadcast.emit('userjoinedthechat',userNickname +" : has joined the chat ");
         
@@ -44,8 +42,8 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
       })
      
  socket.on('disconnect', function() {
-    console.log( ' user has left ')
-    socket.broadcast.emit("userdisconnect"," user has left ") 
+    console.log(userNickname + 'has left ')
+    socket.broadcast.emit("userdisconnect",userNickname +" user has left ") 
 
 })
  
