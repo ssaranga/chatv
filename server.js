@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 res.send('Chat Server is running on port 3000')
 });
-io.on('connection', (socket) => {
+io.on('connect', (socket) => {
         
         console.log('user connected')
 
