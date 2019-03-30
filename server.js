@@ -51,7 +51,7 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
  
  socket.on('playcontrol', function(mediaplaycontrol) {
     console.log( ' Video Play'+mediaplaycontrol)
-    socket.emit("mediacontrol",mediaplaycontrol) 
+    socket.broadcast.emit("mediacontrol",mediaplaycontrol) 
 
 })
 
