@@ -12,15 +12,7 @@ app.get('/', (req, res) => {
 res.send('Chat Server is running on port 3000')
 });
 io.on('connection', (socket) =>  {
-        socket.on('pong', function(data){
-        console.log("Pong received from client");
-    });
-    setTimeout(sendHeartbeat, 25000);
-
-    function sendHeartbeat(){
-        setTimeout(sendHeartbeat, 25000);
-        io.sockets.emit('ping', { beat : 1 });
-    }
+        
         console.log('user connected')
      
 socket.on('join', function(userNickname) {
@@ -54,7 +46,7 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
  
  socket.on('playcontrol', function(mediaplaycontrol) {
     console.log( ' Video Play'+mediaplaycontrol)
-    socket.broadcast.emit("mediacontrol",mediaplaycontrol) 
+    socket.emit("mediacontrol",mediaplaycontrol) 
 
 })
 
