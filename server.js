@@ -17,11 +17,11 @@ io.on('connection', (socket) => {
 
 socket.on('join', function(userNickname) {
 
-        console.log(userNickname +" : has joined the chat "  );
+        console.log(userNickname +" : has joined the chat "  )
         
-        let qList={"question":["Test question 1?", "Test question 2?","Test question 3?", "Test question 4?","Test question 5?", "Test question 6?"]};
+        let qList={"question":["Test question 1?", "Test question 2?","Test question 3?", "Test question 4?","Test question 5?", "Test question 6?"]}
         console.log("question :" +qList)
-        socket.emit('question',qList);
+        
           
         socket.broadcast.emit('userjoinedthechat',userNickname +" : has joined the chat ");
         
@@ -42,13 +42,13 @@ socket.on('messagedetection', (senderNickname,messageContent) => {
      
  socket.on('disconnect', function() {
     console.log( ' user has left ')
-    socket.broadcast.emit("userdisconnect"," user has left ") 
+    socket.broadcast.emit("userdisconnect"," user has left ") ;
 
 }); 
  
  socket.on('playcontrol', function(mediaplaycontrol) {
     console.log( ' Video Play'+mediaplaycontrol)
-    io.emit("mediacontrol",mediaplaycontrol) 
+    socket.emit("mediacontrol",mediaplaycontrol) ;
 
 });
 
