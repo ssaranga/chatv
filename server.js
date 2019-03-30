@@ -12,12 +12,17 @@ app.get('/', (req, res) => {
 res.send('Chat Server is running on port 3000')
 });
 io.on('connection', (socket) =>  {
-        
-        console.log('user connected')
-        var store =socket.handshake.query.name;
-        console.log(store)
-        console.log(socket.id)
+        socket.on('pong', function(data){
+        console.log("Pong received from client");
+    });
+    setTimeout(sendHeartbeat, 25000);
 
+    function sendHeartbeat(){
+        setTimeout(sendHeartbeat, 25000);
+        io.sockets.emit('ping', { beat : 1 });
+    }
+        console.log('user connected')
+     
 socket.on('join', function(userNickname) {
 
         console.log(userNickname +" : has joined the chat "  );
